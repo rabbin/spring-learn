@@ -17,10 +17,20 @@
 
     <modules>
         <module>async-method</module>
+        <module>application</module>
+        <module>library</module>
     </modules>
 
     <dependencyManagement>
         <dependencies>
+            <!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-aop -->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-aop</artifactId>
+                <version>${spring.boot.version}</version>
+            </dependency>
+
+
             <!--            mysql-->
             <dependency>
                 <groupId>mysql</groupId>
