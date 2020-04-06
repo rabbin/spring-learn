@@ -19,6 +19,7 @@
         <module>async-method</module>
         <module>application</module>
         <module>library</module>
+        <module>spring-bean</module>
     </modules>
 
     <dependencyManagement>
@@ -27,6 +28,12 @@
             <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-starter-aop</artifactId>
+                <version>${spring.boot.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-actuator</artifactId>
                 <version>${spring.boot.version}</version>
             </dependency>
 
