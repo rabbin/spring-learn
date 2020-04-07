@@ -13,4 +13,5 @@
     <bean id="beanProperty" class="com.rabbin.BeanProperty"/>
     <bean id="myBeanPostProcessor" class="com.rabbin.MyBeanPostProcessor"/>
     <bean id="beanPropertySet"  class="com.rabbin.BeanPropertySet"/>
+    <bean id="myInstantiationAwareBeanPostProcessor"  class="com.rabbin.MyInstantiationAwareBeanPostProcessor"/>
 </beans>

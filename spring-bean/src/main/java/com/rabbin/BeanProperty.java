@@ -1,5 +1,7 @@
 package com.rabbin;
 
+import org.springframework.stereotype.Component;
+
 public class BeanProperty {
     private String string;
 
