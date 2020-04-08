@@ -21,6 +21,8 @@ public class MyInstantiationAwareBeanPostProcessor implements InstantiationAware
             System.out.println("\n--MyInstantiationAwareBeanPostProcessor : postProcessAfterInitialization: " + beanName);
             System.out.println(((BeanLife) bean).getBeanProperty());
             System.out.println(((BeanLife) bean).getBeanPropertySet());
+            System.out.println(((BeanLife) bean).getBeanPropertyAutowired());
+
             System.out.println("\n属性赋值之后：");
         }
         return true;
