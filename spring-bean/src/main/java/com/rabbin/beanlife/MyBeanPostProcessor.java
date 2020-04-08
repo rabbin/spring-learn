@@ -1,4 +1,4 @@
-package com.rabbin;
+package com.rabbin.beanlife;
 
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.config.BeanPostProcessor;
@@ -9,8 +9,6 @@ public class MyBeanPostProcessor implements BeanPostProcessor {
             System.out.println("\n--MyBeanPostProcessor : postProcessBeforeInitialization: " + beanName);
             System.out.println(((BeanLife) bean).getBeanProperty());
             System.out.println(((BeanLife) bean).getBeanPropertySet());
-            System.out.println("\n初始化之前：");
-
         }
         return bean;
     }

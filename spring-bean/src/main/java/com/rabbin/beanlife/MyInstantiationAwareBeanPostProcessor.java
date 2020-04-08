@@ -1,4 +1,4 @@
-package com.rabbin;
+package com.rabbin.beanlife;
 
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.config.InstantiationAwareBeanPostProcessor;
@@ -19,6 +19,8 @@ public class MyInstantiationAwareBeanPostProcessor implements InstantiationAware
     public boolean postProcessAfterInstantiation(Object bean, String beanName) throws BeansException {
         if (bean instanceof BeanLife) {
             System.out.println("\n--MyInstantiationAwareBeanPostProcessor : postProcessAfterInitialization: " + beanName);
+            System.out.printf("bean name : %s\n", ((BeanLife) bean).getBeanName());
+            System.out.println(((BeanLife) bean).getBeanProperty());
             System.out.println(((BeanLife) bean).getBeanProperty());
             System.out.println(((BeanLife) bean).getBeanPropertySet());
             System.out.println(((BeanLife) bean).getBeanPropertyAutowired());

@@ -1,4 +1,4 @@
-package com.rabbin;
+package com.rabbin.beanlife;
 
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.*;
@@ -10,6 +10,7 @@ import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 
 public class BeanLife implements InitializingBean, DisposableBean, BeanNameAware, BeanFactoryAware, ApplicationContextAware {
+    private String beanName;
     private BeanProperty beanProperty;
     private BeanPropertySet beanPropertySet;
     @Autowired
@@ -19,6 +20,7 @@ public class BeanLife implements InitializingBean, DisposableBean, BeanNameAware
         System.out.println("\n--开始实例化");
         System.out.println("\n--constructor");
         this.beanProperty = beanProperty;
+        System.out.printf("bean name : %s\n", beanName);
         System.out.println(this.beanProperty);
         System.out.println(this.beanPropertySet);
         System.out.println(this.beanPropertyAutowired);
@@ -31,11 +33,14 @@ public class BeanLife implements InitializingBean, DisposableBean, BeanNameAware
 
     @Override
     public void destroy() throws Exception {
+        System.out.println("\n--开始销毁");
         System.out.println("\n--DisposableBean");
+
     }
 
     @Override
     public void afterPropertiesSet() throws Exception {
+        System.out.println("\n开始初始化：");
         System.out.println("\n--InitializingBean");
         System.out.println(beanProperty);
         System.out.println(beanPropertySet);
@@ -50,7 +55,6 @@ public class BeanLife implements InitializingBean, DisposableBean, BeanNameAware
 
     @PreDestroy
     public void preDestroy() {
-        System.out.println("\n--销毁之前");
         System.out.println("\n--@PreDestroy");
     }
 
@@ -72,6 +76,8 @@ public class BeanLife implements InitializingBean, DisposableBean, BeanNameAware
     @Override
     public void setBeanName(String name) {
         System.out.println("\n--BeanNameAware : setBeanName");
+        this.beanName = name;
+        System.out.printf("bean name : %s\n", this.beanName);
         System.out.println(beanProperty);
         System.out.println(beanPropertySet);
         System.out.println(this.beanPropertyAutowired);
@@ -96,5 +102,14 @@ public class BeanLife implements InitializingBean, DisposableBean, BeanNameAware
 
     public BeanPropertyAutowired getBeanPropertyAutowired() {
         return beanPropertyAutowired;
+    }
+
+    public String getBeanName() {
+        return beanName;
+    }
+
+    public void sayHello() {
+        System.out.println("\n--使用bean");
+        System.out.println("hello, world!");
     }
 }
